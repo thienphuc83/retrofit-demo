@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+// Cấu hình retrofit
 public interface APIServer {
 
     APIServer apiServer = new Retrofit.Builder()
