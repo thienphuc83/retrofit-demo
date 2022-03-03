@@ -34,10 +34,12 @@ public class MainActivity extends AppCompatActivity implements Callback<Example>
 
     }
 
+    // hàm call api
     private void onCallAPI(String key_api) {
         APIServer.apiServer.getExample(key_api).enqueue(this);
     }
 
+    // hàm trả về data khi call api thành công
     @SuppressLint("SetTextI18n")
     @Override
     public void onResponse(Call<Example> call, Response<Example> response) {
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements Callback<Example>
         Toast.makeText(this, "Call api success", Toast.LENGTH_SHORT).show();
     }
 
+    // call api thất bại
     @Override
     public void onFailure(Call<Example> call, Throwable t) {
         Toast.makeText(this, "Call api fail!", Toast.LENGTH_SHORT).show();
