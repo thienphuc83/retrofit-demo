@@ -1,6 +1,5 @@
 package com.example.retrofit_demo;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,17 +39,16 @@ public class MainActivity extends AppCompatActivity implements Callback<Example>
     }
 
     // hàm trả về data khi call api thành công
-    @SuppressLint("SetTextI18n")
     @Override
     public void onResponse(Call<Example> call, Response<Example> response) {
         if (response.body() == null) {
-            Toast.makeText(this, "Call api success but null data!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Call api data null!", Toast.LENGTH_SHORT).show();
             return;
         }
         tvTitle.setText(response.body().getTitle());
         tvStatus.setText(response.body().getStatus());
         tvOverview.setText(response.body().getOverview());
-        tvBudget.setText(response.body().getBudget() + "");
+        tvBudget.setText(String.valueOf(response.body().getBudget()));
         Toast.makeText(this, "Call api success", Toast.LENGTH_SHORT).show();
     }
 
